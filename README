@@ -1,1 +1,6 @@
 Let's use https://www.pygame.org.
+
+
+
+def gomb(kikil):
+  return kikil
