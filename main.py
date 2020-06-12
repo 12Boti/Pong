@@ -88,12 +88,18 @@ while not done:
 		jancsiAy -= jancsi_v
 
 	if pygame.key.get_pressed()[pygame.K_SPACE] and szamlA>=4500*20:
-		jancsi_height_A *= 2
+		new_height = jancsi_height_A * 2
+		# move up so we stay in the same position
+		jancsiAy -= (new_height - jancsi_height_A) / 2
+		jancsi_height_A = new_height
 		szamlA = 0
 		lejar[0] = True
 				
 	if lejar[0] and szamlA == 18000:
-		jancsi_height_A = jancsi_height_A/2
+		new_height = jancsi_height_A / 2
+		# move down so we stay in the same position
+		jancsiAy += (jancsi_height_A - new_height) / 2
+		jancsi_height_A = new_height
 		szamlA = 0
 		lejar[0] = False
 			
@@ -107,11 +113,17 @@ while not done:
 		jancsiBy -= jancsi_v
 
 	if pygame.key.get_pressed()[pygame.K_TAB] and szamlB>=4500*20:
-		jancsi_height_B *= 2
+		new_height = jancsi_height_B * 2
+		# move up so we stay in the same position
+		jancsiBy -= (new_height - jancsi_height_B) / 2
+		jancsi_height_B = new_height
 		szamlB = 0
 		lejar[1] = True
 	if lejar[1] and szamlB == 18000:
-		jancsi_height_B = jancsi_height_B/2
+		new_height = jancsi_height_B / 2
+		# move down so we stay in the same position
+		jancsiBy += (jancsi_height_B - new_height) / 2
+		jancsi_height_B = new_height
 		szamlB = 0
 		lejar[1] = False
 
