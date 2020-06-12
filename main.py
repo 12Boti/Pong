@@ -1,34 +1,36 @@
 import pygame
 import random
 
+# draws a rectangle in a color
 def draw_rect(color, rect):
 	pygame.draw.rect(pygame.display.get_surface(), color, rect)
 
-def draw_rect_w(color,rect):
-	draw_rect(color, rect)
+# draws a white rectangle
+def draw_rect_w(rect):
+	draw_rect((255, 255, 255), rect)
 
 def draw():
 	# draw jancsi A
-	draw_rect_w((255,255,255),pygame.Rect(jancsi_off, jancsiAy, jancsi_width, jancsi_height_A))
+	draw_rect_w(pygame.Rect(jancsi_off, jancsiAy, jancsi_width, jancsi_height_A))
 	# draw jancsi B
-	draw_rect_w((255,255,255),pygame.Rect(width - jancsi_width - jancsi_off, jancsiBy, jancsi_width, jancsi_height_B))
+	draw_rect_w(pygame.Rect(width - jancsi_width - jancsi_off, jancsiBy, jancsi_width, jancsi_height_B))
 	# draw ball
-	draw_rect_w((255,255,255),pygame.Rect(ballx, bally, ball_size, ball_size))
+	draw_rect_w(pygame.Rect(ballx, bally, ball_size, ball_size))
 	
 	# töltés A
 	if szamlA<90000 and not lejar[0]:
-		draw_rect_w((255,0,0),pygame.Rect(jancsi_off, jancsiAy + jancsi_height_A - (jancsi_height_A*szamlA/90000), jancsi_width, (jancsi_height_A/90000)*szamlA))
+		draw_rect((255,0,0),pygame.Rect(jancsi_off, jancsiAy + jancsi_height_A - (jancsi_height_A*szamlA/90000), jancsi_width, (jancsi_height_A/90000)*szamlA))
 	if szamlA>=90000 and not lejar[0]:
-		draw_rect_w((255,0,0),pygame.Rect(jancsi_off, jancsiAy, jancsi_width, jancsi_height_A))
+		draw_rect((255,0,0),pygame.Rect(jancsi_off, jancsiAy, jancsi_width, jancsi_height_A))
 	if lejar[0]:
-		draw_rect_w((255,0,0),pygame.Rect(jancsi_off, jancsiAy + (jancsi_height_A*szamlA/18000), jancsi_width, (jancsi_height_A/18000)*(18000-szamlA)))
+		draw_rect((255,0,0),pygame.Rect(jancsi_off, jancsiAy + (jancsi_height_A*szamlA/18000), jancsi_width, (jancsi_height_A/18000)*(18000-szamlA)))
 	# töltés B
 	if szamlB<90000 and not lejar[1]:
-		draw_rect_w((0,0,255),pygame.Rect(width - jancsi_width - jancsi_off, jancsiBy + jancsi_height_B - (jancsi_height_B*szamlB/90000), jancsi_width, (jancsi_height_B/90000)*szamlB))
+		draw_rect((0,0,255),pygame.Rect(width - jancsi_width - jancsi_off, jancsiBy + jancsi_height_B - (jancsi_height_B*szamlB/90000), jancsi_width, (jancsi_height_B/90000)*szamlB))
 	if szamlB>=90000 and not lejar[1]:
-		draw_rect_w((0,0,255),pygame.Rect(width - jancsi_width - jancsi_off, jancsiBy, jancsi_width, jancsi_height_B))
+		draw_rect((0,0,255),pygame.Rect(width - jancsi_width - jancsi_off, jancsiBy, jancsi_width, jancsi_height_B))
 	if lejar[1]:
-		draw_rect_w((0,0,255),pygame.Rect(width - jancsi_width - jancsi_off, jancsiBy + (jancsi_height_B*szamlB/18000), jancsi_width, (jancsi_height_B/18000)*(18000-szamlB)))        
+		draw_rect((0,0,255),pygame.Rect(width - jancsi_width - jancsi_off, jancsiBy + (jancsi_height_B*szamlB/18000), jancsi_width, (jancsi_height_B/18000)*(18000-szamlB)))        
 
 def resetball():
 	global ballx
