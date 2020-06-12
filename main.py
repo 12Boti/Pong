@@ -3,7 +3,7 @@ import random
 
 def draw_rect(color, rect):
 	pygame.draw.rect(pygame.display.get_surface(), color, rect)
-# váltotott
+
 def draw_rect_w(color,rect):
 	draw_rect(color, rect)
 
@@ -53,7 +53,7 @@ done = False
 jancsi_v = 0.08
 jancsi_off = 10
 #jancsi_height = 70
-# váltotott
+
 jancsi_height_A = 70
 jancsi_height_B = 70
 jancsi_width = 10
@@ -83,7 +83,7 @@ while not done:
 		jancsiAy += jancsi_v
 	elif pygame.key.get_pressed()[pygame.K_w]:
 		jancsiAy -= jancsi_v
-# váltotott
+
 	if pygame.key.get_pressed()[pygame.K_SPACE] and szamlA>=4500*20:
 		jancsi_height_A *= 2
 		szamlA = 0
@@ -102,7 +102,7 @@ while not done:
 		jancsiBy += jancsi_v
 	elif pygame.key.get_pressed()[pygame.K_UP]:
 		jancsiBy -= jancsi_v
-# váltotott
+
 	if pygame.key.get_pressed()[pygame.K_TAB] and szamlB>=4500*20:
 		jancsi_height_B *= 2
 		szamlB = 0
@@ -156,7 +156,7 @@ while not done:
 
 	pygame.display.get_surface().fill((0,0,0))
 	draw()
-# váltotott
+
 	szamlA += 1
 	szamlB += 1
 	pygame.display.flip()
